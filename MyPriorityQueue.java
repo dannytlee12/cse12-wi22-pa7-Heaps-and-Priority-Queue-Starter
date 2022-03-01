@@ -5,7 +5,7 @@
  * Email:
  * Sources used: Put "None" if you did not have any external help
  * Some example of sources used would be Tutors, Zybooks, and Lecture Slides
- * 
+ *
  * 2-4 sentence file description here
  */
 
@@ -19,8 +19,9 @@ public class MyPriorityQueue<E extends Comparable<E>>
 
     //TODO: Add a public instance variable called "heap"
     //"heap" is of a generic MyMinHeap type
+    public MyMinHeap<E> heap; 
 
-    
+
     /**
      * Constructor that creates an empty priority queue
      */
@@ -45,7 +46,7 @@ public class MyPriorityQueue<E extends Comparable<E>>
     }
 
     /**
-     * Removes the element with the highest priority from the priority queue 
+     * Removes the element with the highest priority from the priority queue
      * @return the element with the highest priority
      */
     public E pop(){

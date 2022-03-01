@@ -121,6 +121,7 @@ Makes changes in data*/
          int minIdx = this.getMinChildIdx(index);
          this.swap(index, minIdx);
          this.percolateDown(minIdx);
+         
        }
      }
 
