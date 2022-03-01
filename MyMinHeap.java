@@ -11,6 +11,7 @@
 
 // Your import statements
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * TODO: Add class header
@@ -21,20 +22,23 @@ public class MyMinHeap<E extends Comparable<E>> implements MinHeapInterface <E>{
      * TODO: Implement MinHeap
      */
 
-public ArrayList<E> data;
+    public ArrayList<E> data;
 
-     /*No-argument constructor that initializes data to an empty ArrayList*/
-public MyMinHeap(){
+         /*No-argument constructor that initializes data to an empty ArrayList*/
+    public MyMinHeap(){
+      data = new ArrayList<E>();
+    }
 
-}
-
-/*Initializes a min-heap using the elements in collection
-First, initialize data using the ArrayList(Collection<? extends E> c)constructor by directly passing in the collection argument.
-Next, iterate through data backward, percolating each element down. We will soon write the percolateDown() helper method, which we can be used here.
-Throws NullPointerException if collection or any element in collection is null.*/
-public MyMinHeap(Collection<? extends E> collection){
-
-}
+    /*Initializes a min-heap using the elements in collection
+    First, initialize data using the ArrayList(Collection<? extends E> c)constructor by directly passing in the collection argument.
+    Next, iterate through data backward, percolating each element down. We will soon write the percolateDown() helper method, which we can be used here.
+    Throws NullPointerException if collection or any element in collection is null.*/
+    public MyMinHeap(Collection<? extends E> collection){
+      data = new ArrayList<>(collection);
+      for(int i = data.size()-1; i >= 0; i--){
+        this.percolateDown(i);
+      }
+    }
 
 
 /*     Swap the elements at from and to indices in data.
@@ -80,14 +84,14 @@ Depends on what is currently in data but does not make any changes to data*/
 
 
      protected int getMinChildIdx(int index){
-      if(this.getLeftChildIdx(index) == null){ //index is a leaf
+      if(this.getLeftChildIdx(index) > data.size()-1){ //index is a leaf
          return -1;
        }
-      if(this.getRightChildIdx(index) == null){ //index only has one child
+      if(this.getRightChildIdx(index) > data.size()-1){ //index only has one child
         return this.getLeftChildIdx(index);
       }
-      if(data.get(this.getLeftChildIdx(index)) >
-          data.get(this.getRightChildIdx(index))){ //right smaller than left
+      if(data.get(this.getLeftChildIdx(index)).compareTo(
+          data.get(this.getRightChildIdx(index))) > 0){ //right smaller than left
             return this.getRightChildIdx(index);
           }
       else{ //left is smaller or they are equal
@@ -102,7 +106,7 @@ Makes changes in data*/
 
 
      protected void percolateUp(int index){
-       if(data.get(index) < data.get(this.getParentIdx(index))){
+       if(data.get(index).compareTo(data.get(this.getParentIdx(index))) < 0){ //<
          this.swap(index, this.getParentIdx(index));
          this.percolateUp(this.getParentIdx(index));
        }
@@ -113,7 +117,7 @@ Note the case where the element that you are percolating is equal to the smaller
 You can assume that index will be within bounds
 Makes changes in data*/
      protected void percolateDown(int index){
-       if(data.get(index) > data.get(this.getMinChildIdx(index))){
+       if(data.get(index).compareTo(data.get(this.getMinChildIdx(index))) > 0){ //>
          int minIdx = this.getMinChildIdx(index);
          this.swap(index, minIdx);
          this.percolateDown(minIdx);
@@ -158,7 +162,7 @@ If the heap is empty, return null instead.*/
     /*Remove and return the root (this will be the smallest) element in the heap. Use deleteIndex() helper method here.
 If the heap is empty return null instead.*/
     public E remove(){
-      if(size == 0){
+      if(data.size() == 0){
         return null;
       }
       return this.deleteIndex(0);
