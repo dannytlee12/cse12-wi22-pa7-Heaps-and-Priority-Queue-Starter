@@ -1,26 +1,32 @@
 /**
  * TODO: Add your file header
- * Name:
- * ID:
- * Email:
- * Sources used: Put "None" if you did not have any external help
+ * Name: Danny Lee
+ * ID: A17209209
+ * Email: dtl001@ucsd.edu
+ * Sources used: Zybooks
  * Some example of sources used would be Tutors, Zybooks, and Lecture Slides
- * 
+ *
  * 2-4 sentence file description here
+ This file contains the MyPriorityQueue class that is an implementation of the
+ priority queue ADT. This implementation uses a MyMinHeap as the underlying
+ data structure.
  */
 
 import java.util.Collection;
 
 /**
  * TODO: Add Class Header
+ This class is an implementation of the priority queue which uses a MyMinHeap
+ as the underlying data structure. 
  */
 public class MyPriorityQueue<E extends Comparable<E>>
 {
 
     //TODO: Add a public instance variable called "heap"
     //"heap" is of a generic MyMinHeap type
+    public MyMinHeap<E> heap;
 
-    
+
     /**
      * Constructor that creates an empty priority queue
      */
@@ -45,7 +51,7 @@ public class MyPriorityQueue<E extends Comparable<E>>
     }
 
     /**
-     * Removes the element with the highest priority from the priority queue 
+     * Removes the element with the highest priority from the priority queue
      * @return the element with the highest priority
      */
     public E pop(){
