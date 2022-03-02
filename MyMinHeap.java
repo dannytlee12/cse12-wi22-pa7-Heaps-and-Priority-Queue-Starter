@@ -1,12 +1,14 @@
 /**
- * TODO: Add your file header
- * Name:
- * ID:
- * Email:
- * Sources used: Put "None" if you did not have any external help
+
+ * Name: Danny Lee
+ * ID: A17209209
+ * Email: dtl001@ucsd.edu
+ * Sources used: Zybooks
  * Some example of sources used would be Tutors, Zybooks, and Lecture Slides
  *
  * 2-4 sentence file description here
+ This class contains an implementation of the Min Heap ADT. This
+ implementation uses an arraylist as the underlying data structure.
  */
 
 // Your import statements
@@ -15,6 +17,9 @@ import java.util.Collection;
 
 /**
  * TODO: Add class header
+ This is an implementation of the Min heap ADT. The smallest value of the Heap
+ is at the root, and each of its children will be larger than it. It uses an
+ arraylist as the underlying data structure. 
  */
 public class MyMinHeap<E extends Comparable<E>> implements MinHeapInterface <E>{
 
@@ -117,11 +122,15 @@ Note the case where the element that you are percolating is equal to the smaller
 You can assume that index will be within bounds
 Makes changes in data*/
      protected void percolateDown(int index){
+       if(this.getMinChildIdx(index) == -1){
+         return;
+       }
+
        if(data.get(index).compareTo(data.get(this.getMinChildIdx(index))) > 0){ //>
          int minIdx = this.getMinChildIdx(index);
          this.swap(index, minIdx);
          this.percolateDown(minIdx);
-         
+
        }
      }
 

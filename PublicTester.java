@@ -1,8 +1,8 @@
 
 /**
  * This file contains all the public tests (visible on Gradescope)
- * Use this as a guide to write tests to verify your MyMinHeap and 
- * MyPriorityQueue implementation 
+ * Use this as a guide to write tests to verify your MyMinHeap and
+ * MyPriorityQueue implementation
  */
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -19,7 +19,7 @@ public class PublicTester {
 
     /**
      * Helper method to initialize all instance variables of MyDeque
-     * 
+     *
      * @param meanHeap The heap to initialize
      * @param data     The data array
      */
@@ -168,8 +168,8 @@ public class PublicTester {
         Integer[] expected = { 3, 4, 8, 5, 2 };
         for (int i = 0; i < 5; i++) {
             assertEquals(
-                "Heap after getting minimum child index should be unchanged. ", 
-                expected[i], 
+                "Heap after getting minimum child index should be unchanged. ",
+                expected[i],
                 heap.data.get(i)
             );
         }
@@ -189,8 +189,8 @@ public class PublicTester {
         Character[] expected = { 'D', 'E', 'D', 'G', 'Z', 'X' };
         for (int i = 0; i < 6; i++) {
             assertEquals(
-                "Heap after deleting index 0. ", 
-                expected[i], 
+                "Heap after deleting index 0. ",
+                expected[i],
                 heap.data.get(i)
             );
         }
@@ -210,8 +210,8 @@ public class PublicTester {
         Integer[] expected = { 11, 11, 13, 12 };
         for (int i = 0; i < 4; i++) {
             assertEquals(
-                "Heap after inserting 11. ", 
-                expected[i], 
+                "Heap after inserting 11. ",
+                expected[i],
                 heap.data.get(i)
             );
         }
@@ -231,8 +231,8 @@ public class PublicTester {
         Integer[] expected = { 13, 18, 18 };
         for (int i = 0; i < 3; i++) {
             assertEquals(
-                "Heap after getMin should not be changed. ", 
-                expected[i], 
+                "Heap after getMin should not be changed. ",
+                expected[i],
                 heap.data.get(i)
             );
         }
@@ -241,7 +241,7 @@ public class PublicTester {
     /** Test the MyMinHeap remove function */
     @Test
     public void testMinHeapRemove() {
-        MyMinHeap<Integer> heap = new MyMinHeap<>(); 
+        MyMinHeap<Integer> heap = new MyMinHeap<>();
         ArrayList<Integer> startingList = new ArrayList<Integer>(
             Arrays.asList(
                 new Integer[]{13,18,18,25,18,19}
@@ -253,8 +253,8 @@ public class PublicTester {
         assertEquals("Smaller size element", 5, heap.data.size());
         for (int i = 0; i < 5; i++) {
             assertEquals(
-                "Heap after getMin should not be changed. ", 
-                expected[i], 
+                "Heap after getMin should not be changed. ",
+                expected[i],
                 heap.data.get(i)
             );
         }
@@ -274,8 +274,8 @@ public class PublicTester {
         Integer[] expected = { 13, 18, 18, 25, 18, 19 };
         for (int i = 0; i < 6; i++) {
             assertEquals(
-                "Heap after size() should not be changed. ", 
-                expected[i], 
+                "Heap after size() should not be changed. ",
+                expected[i],
                 heap.data.get(i)
             );
         }
@@ -330,8 +330,8 @@ public class PublicTester {
 
         for (int i = 0; i < 8; i++) {
             assertEquals(
-                "Heap after constructor builds the priority queue. ", 
-                heap.data.get(i), 
+                "Heap after constructor builds the priority queue. ",
+                heap.data.get(i),
                 pq.heap.data.get(i)
             );
         }
@@ -356,8 +356,8 @@ public class PublicTester {
         );
         for (int i = 0; i < 3; i++) {
             assertEquals(
-                "Priority queue should be unchanged. ", 
-                heap.data.get(i), 
+                "Priority queue should be unchanged. ",
+                heap.data.get(i),
                 pq.heap.data.get(i)
             );
         }
@@ -370,7 +370,7 @@ public class PublicTester {
         MyPriorityQueue<Integer> pq = new MyPriorityQueue<>();
         ArrayList<Integer> startingList = new ArrayList<Integer>(
             Arrays.asList(
-                new Integer[] { 13, 18, 18 }            
+                new Integer[] { 13, 18, 18 }
             )
         );        pq.heap = new MyMinHeap<>();
         pq.heap.data = new ArrayList<>(startingList);
@@ -380,14 +380,14 @@ public class PublicTester {
         );
         assertEquals(
             "Minimum element of [13,18,18]. ",
-            heap.getMin(), 
+            heap.getMin(),
             pq.peek()
         );
-        
+
         for (int i = 0; i < 3; i++) {
             assertEquals(
-                "Priority queue should be unchanged. ", 
-                heap.data.get(i), 
+                "Priority queue should be unchanged. ",
+                heap.data.get(i),
                 pq.heap.data.get(i)
             );
         }
@@ -411,19 +411,19 @@ public class PublicTester {
         );
         assertEquals(
             "Highest priority (removed) element of [13,18,18,25,18,19]. ",
-            heap.remove(), 
+            heap.remove(),
             pq.pop()
         );
         assertEquals(
             "Smaller size after the removal",
-            5, 
+            5,
             pq.heap.data.size()
         );
-        
+
         for (int i = 0; i < 5; i++) {
             assertEquals(
-                "Priority queue should be unchanged. ", 
-                heap.data.get(i), 
+                "Priority queue should be unchanged. ",
+                heap.data.get(i),
                 pq.heap.data.get(i)
             );
         }
@@ -448,15 +448,15 @@ public class PublicTester {
         );
         assertEquals(
             "Length of [13,18,18,25,18,19]. ",
-            heap.size(), 
+            heap.size(),
             pq.getLength()
         );
 
-        
+
         for (int i = 0; i < 5; i++) {
             assertEquals(
-                "Priority queue should be unchanged. ", 
-                heap.data.get(i), 
+                "Priority queue should be unchanged. ",
+                heap.data.get(i),
                 pq.heap.data.get(i)
             );
         }
@@ -483,7 +483,7 @@ public class PublicTester {
         );
         assertEquals(
             "Length of [13,18,18,25,18,19]. ",
-            0, 
+            0,
             pq.heap.data.size()
         );
     }
@@ -511,7 +511,7 @@ public class PublicTester {
         tk3.setCreatedAt(new Long(1));
 
         assertTrue(
-            "tk1 should come before tk2", tk1.compareTo(tk2) < 0
+            "tk1 should come before tk2: " + tk1.createdAt + "  " + tk2.createdAt, tk1.compareTo(tk2) < 0
         );
         assertTrue(
             "tk1 should come before tk3", tk1.compareTo(tk3) < 0
@@ -615,7 +615,7 @@ public class PublicTester {
         tkE.setCreatedAt(new Long(1));
 
         assertTrue(
-            "tk1 should come after tk2", tk1.compareTo(tk2) > 0
+            "tk1 should come after tk2: " + tk1.compareTo(tk2), tk1.compareTo(tk2) > 0
         );
         assertTrue(
             "tk3 should come before tk1", tk3.compareTo(tk1) < 0
