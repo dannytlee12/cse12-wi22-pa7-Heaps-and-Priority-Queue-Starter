@@ -158,7 +158,7 @@ If the heap is empty, return null instead.*/
     /*Remove and return the root (this will be the smallest) element in the heap. Use deleteIndex() helper method here.
 If the heap is empty return null instead.*/
     public E remove(){
-      if(size == 0){
+      if(data.size() == 0){
         return null;
       }
       return this.deleteIndex(0);
