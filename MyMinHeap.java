@@ -19,7 +19,7 @@ import java.util.Collection;
  * TODO: Add class header
  This is an implementation of the Min heap ADT. The smallest value of the Heap
  is at the root, and each of its children will be larger than it. It uses an
- arraylist as the underlying data structure. 
+ arraylist as the underlying data structure.
  */
 public class MyMinHeap<E extends Comparable<E>> implements MinHeapInterface <E>{
 
@@ -41,6 +41,9 @@ public class MyMinHeap<E extends Comparable<E>> implements MinHeapInterface <E>{
     public MyMinHeap(Collection<? extends E> collection){
       data = new ArrayList<>(collection);
       for(int i = data.size()-1; i >= 0; i--){
+        if(data.get(i) == null){
+          throw new NullPointerException();
+        }
         this.percolateDown(i);
       }
     }
