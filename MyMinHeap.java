@@ -157,6 +157,9 @@ Makes changes in data*/
 
     Throw a NullPointerException and do not add to the heap if element is null.*/
     public void insert(E element){
+      if(element == null){
+        throw new NullPointerException();
+      }
       data.add(element);
       this.percolateUp(data.size()-1);
     }
